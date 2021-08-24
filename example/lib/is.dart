@@ -12,7 +12,7 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp>
     with IronSourceListener, WidgetsBindingObserver {
-  final String appKey = "xxxxxxxx"; // change this with your appKey
+  final String appKey = "10a9804bd"; // change this with your appKey
 
   bool rewardeVideoAvailable = false,
       offerwallAvailable = false,
@@ -46,6 +46,7 @@ class _MyAppState extends State<MyApp>
 
   void init() async {
     var userId = await IronSource.getAdvertiserId();
+    loadInterstitial();
     await IronSource.validateIntegration();
     await IronSource.setUserId(userId);
     await IronSource.initialize(
